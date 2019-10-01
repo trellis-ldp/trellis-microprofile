@@ -13,6 +13,6 @@ pluginManagement {
 }
 
 rootProject.name = 'trellis-microprofile'
-include ':trellis-webapp'
+include ':trellis-database'
 
-project(':trellis-webapp').projectDir = "$rootDir/webapp" as File
+project(':trellis-database').projectDir = "$rootDir/database" as File
