@@ -10,7 +10,7 @@ PostgreSQL database connections are supported.
 Java 8+ is required to run Trellis. To build this project, use this command:
 
 ```
-$ ./gradlew install
+$ ./gradlew assemble
 ```
 
 ## Database setup
