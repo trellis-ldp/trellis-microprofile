@@ -24,32 +24,27 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 
 class PgsqlExtension implements BeforeAllCallback, AfterAllCallback {
 
-    private static EmbeddedPostgres pg;
+    private static EmbeddedPostgres pg = getDatabase();
+
+    static EmbeddedPostgres getDatabase() {
+        if (!getConfig().getOptionalValue("testing.external.pgsql", Boolean.class).orElse(false)) {
+            final int port = getConfig().getOptionalValue("testing.pgsql.port", Integer.class).orElse(0);
+            try {
+                pg = EmbeddedPostgres.builder().setPort(port)
+                    .setDataDirectory("build/testing/" + "pgdata-" + new RandomStringGenerator
+                            .Builder().withinRange('a', 'z').build().generate(10)).start();
+            } catch (final Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        }
+        return null;
+    }
 
     @Override
     public void beforeAll(final ExtensionContext context) throws Exception {
-        System.setProperty("quarkus.datasource.username", "postgres");
-        if (getConfig().getOptionalValue("quarkus.external.pgsql", Boolean.class).orElse(false)) {
-            System.clearProperty("quarkus.datasource.password");
-            System.setProperty("quarkus.datasource.url", "jdbc:postgresql://localhost/trellis");
-        } else {
-            if (pg == null) {
-                pg = EmbeddedPostgres.builder()
-                    .setDataDirectory("build/testing/" + "pgdata-" + new RandomStringGenerator
-                            .Builder().withinRange('a', 'z').build().generate(10)).start();
-            }
-            System.setProperty("quarkus.datasource.password", "postgres");
-            System.setProperty("quarkus.datasource.url", "jdbc:postgresql://localhost:" + pg.getPort() + "/postgres");
-        }
     }
 
     @Override
     public void afterAll(final ExtensionContext context) throws Exception {
-        System.clearProperty("quarkus.datasource.url");
-        System.clearProperty("quarkus.datasource.username");
-        System.clearProperty("quarkus.datasource.password");
-        if (pg != null) {
-            pg.close();
-        }
     }
 }
