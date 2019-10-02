@@ -2,6 +2,19 @@ plugins {
     id 'io.quarkus' version "0.23.1"
 }
 
+def static randomPort() {
+    try {
+        ServerSocket server = new ServerSocket()
+        server.setReuseAddress(true)
+        server.bind(new InetSocketAddress(0))
+        int port = server.getLocalPort()
+        server.close()
+        return port
+    } catch (IOException e) {
+        throw new IOException('Failed to find random free port', e)
+    }
+}
+
 dependencies {
     implementation enforcedPlatform("io.quarkus:quarkus-bom:$quarkusVersion")
     implementation enforcedPlatform("org.trellisldp:trellis-bom:$trellisVersion")
@@ -51,11 +64,24 @@ dependencies {
 
     testImplementation "com.opentable.components:otj-pg-embedded:$otjPgVersion"
     testImplementation "io.quarkus:quarkus-junit5"
+    testImplementation "org.jboss.resteasy:resteasy-client"
     testImplementation "io.rest-assured:rest-assured"
     testImplementation "org.apache.commons:commons-text:$commonsTextVersion"
+    testImplementation "org.trellisldp:trellis-test"
 }
 
 test {
+    if (!project.hasProperty("externalPgsql")) {
+        def port = randomPort()
+        systemProperty 'testing.pgsql.port', port
+        systemProperty 'quarkus.datasource.username', 'postgres'
+        systemProperty 'quarkus.datasource.password', 'postgres'
+        systemProperty 'quarkus.datasource.url', "jdbc:postgresql://localhost:$port/postgres"
+    } else {
+        systemProperty 'testing.external.pgsql', 'true'
+    }
+
     systemProperty 'trellis.file.memento.basepath', "$buildDir/data/mementos"
+    systemProperty 'trellis.file.binary.basepath', "$buildDir/data/binaries"
     systemProperty 'com.arjuna.ats.arjuna.objectstore.objectStoreDir', "$buildDir/data/ObjectStore"
 }

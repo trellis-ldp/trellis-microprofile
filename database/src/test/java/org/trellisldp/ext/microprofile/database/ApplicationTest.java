@@ -11,19 +11,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.trellisldp.ext.db.webapp;
+package org.trellisldp.ext.microprofile.database;
 
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.condition.OS.WINDOWS;
 
+import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledOnOs;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-abstract class AbstractApplicationTests {
+@DisabledOnOs(WINDOWS)
+@ExtendWith(PgsqlExtension.class)
+@QuarkusTest
+class ApplicationTest {
 
     @Test
     void healthCheckTest() {
