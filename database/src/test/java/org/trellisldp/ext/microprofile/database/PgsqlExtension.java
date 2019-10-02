@@ -18,32 +18,33 @@ import static org.eclipse.microprofile.config.ConfigProvider.getConfig;
 import com.opentable.db.postgres.embedded.EmbeddedPostgres;
 
 import org.apache.commons.text.RandomStringGenerator;
-import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
-import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
+import org.junit.jupiter.api.extension.AfterAllCallback;
+import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
-class PgsqlExtension implements BeforeTestExecutionCallback, AfterTestExecutionCallback {
+class PgsqlExtension implements BeforeAllCallback, AfterAllCallback {
 
     private static EmbeddedPostgres pg;
 
     @Override
-    public void beforeTestExecution(final ExtensionContext context) throws Exception {
-
+    public void beforeAll(final ExtensionContext context) throws Exception {
         System.setProperty("quarkus.datasource.username", "postgres");
         if (getConfig().getOptionalValue("quarkus.external.pgsql", Boolean.class).orElse(false)) {
             System.clearProperty("quarkus.datasource.password");
             System.setProperty("quarkus.datasource.url", "jdbc:postgresql://localhost/trellis");
         } else {
-            pg = EmbeddedPostgres.builder()
-                .setDataDirectory("build/testing/" + "pgdata-" + new RandomStringGenerator
-                        .Builder().withinRange('a', 'z').build().generate(10)).start();
+            if (pg == null) {
+                pg = EmbeddedPostgres.builder()
+                    .setDataDirectory("build/testing/" + "pgdata-" + new RandomStringGenerator
+                            .Builder().withinRange('a', 'z').build().generate(10)).start();
+            }
             System.setProperty("quarkus.datasource.password", "postgres");
             System.setProperty("quarkus.datasource.url", "jdbc:postgresql://localhost:" + pg.getPort() + "/postgres");
         }
     }
 
     @Override
-    public void afterTestExecution(final ExtensionContext context) throws Exception {
+    public void afterAll(final ExtensionContext context) throws Exception {
         System.clearProperty("quarkus.datasource.url");
         System.clearProperty("quarkus.datasource.username");
         System.clearProperty("quarkus.datasource.password");
