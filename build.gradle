@@ -16,7 +16,7 @@ ext {
     jdbiVersion = '3.10.1'
     jjwtVersion = '0.10.7'
     mustacheVersion = '0.9.6'
-    quarkusVersion = '0.23.1'
+    quarkusVersion = '0.23.2'
     slf4jVersion = '1.7.28'
     snakeyamlVersion = '1.25'
     trellisDbVersion = '0.3.0-SNAPSHOT'

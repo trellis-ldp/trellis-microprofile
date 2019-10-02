@@ -15,56 +15,22 @@ package org.trellisldp.ext.microprofile.database;
 
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
-import static java.util.Collections.emptySet;
-import static java.util.concurrent.TimeUnit.MINUTES;
-import static javax.ws.rs.client.ClientBuilder.newBuilder;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.condition.OS.WINDOWS;
 
-import io.quarkus.test.common.http.TestHTTPResource;
+import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 
-import java.net.URL;
 import java.util.List;
-import java.util.Set;
-
-import javax.ws.rs.client.Client;
 
 import org.junit.jupiter.api.Test;
-import org.trellisldp.test.LdpRdfTests;
+import org.junit.jupiter.api.condition.DisabledOnOs;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-abstract class AbstractApplicationTests implements LdpRdfTests {
-
-    @TestHTTPResource
-    URL baseUrl;
-
-    String resource;
-
-    Client client = newBuilder().connectTimeout(2, MINUTES).build();
-
-    @Override
-    public Set<String> supportedJsonLdProfiles() {
-        return emptySet();
-    }
-
-    @Override
-    public void setResourceLocation(final String location) {
-        resource = location;
-    }
-
-    @Override
-    public String getResourceLocation() {
-        return resource;
-    }
-
-    @Override
-    public String getBaseURL() {
-        return baseUrl.toString();
-    }
-
-    @Override
-    public Client getClient() {
-        return client;
-    }
+@DisabledOnOs(WINDOWS)
+@ExtendWith(PgsqlExtension.class)
+@QuarkusTest
+class ApplicationTest {
 
     @Test
     void healthCheckTest() {
@@ -105,15 +71,5 @@ abstract class AbstractApplicationTests implements LdpRdfTests {
     void rootResourceBody() {
         final String body = get("/").getBody().asString();
         assertTrue(body.contains("<http://www.w3.org/ns/ldp#>"));
-    }
-
-    @Test
-    void testUrl() {
-        assertEquals("http://localhost:8081/", baseUrl.toString());
-    }
-
-    @Test
-    void testClient() {
-        assertNotNull(client);
     }
 }
