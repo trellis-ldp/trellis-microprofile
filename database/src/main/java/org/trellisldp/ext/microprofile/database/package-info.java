@@ -15,4 +15,4 @@
 /**
  * A microprofile-based Trellis application.
  */
-package org.trellisldp.ext.db.webapp;
+package org.trellisldp.ext.microprofile.database;

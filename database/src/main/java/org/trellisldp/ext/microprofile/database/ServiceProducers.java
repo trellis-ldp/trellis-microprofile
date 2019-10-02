@@ -11,25 +11,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.trellisldp.ext.db.webapp;
-
-import java.util.Iterator;
+package org.trellisldp.ext.microprofile.database;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Instance;
-import javax.inject.Inject;
 
-import org.trellisldp.api.ConstraintService;
-import org.trellisldp.app.ConstraintServices;
-
+/**
+ * A class for injecting services into the quarkus runtime.
+ *
+ * <p>Note: this is a useful extension point for adjusting the service wiring.
+ */
 @ApplicationScoped
-public class CDIConstraintServices implements ConstraintServices {
-
-    @Inject
-    protected Instance<ConstraintService> constraintServices;
-
-    @Override
-    public Iterator<ConstraintService> iterator() {
-        return constraintServices.iterator();
-    }
+class ServiceProducers {
 }

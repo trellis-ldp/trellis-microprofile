@@ -44,6 +44,7 @@ dependencies {
     implementation "org.trellisldp:trellis-vocabulary"
     implementation "org.trellisldp:trellis-webac"
     implementation "org.trellisldp.ext:trellis-db:$trellisDbVersion"
+    implementation "org.trellisldp.ext:trellis-db-webapp:$trellisDbVersion"
 
     runtime "javax.activation:activation:$activationVersion"
     runtime "javax.xml.bind:jaxb-api:$jaxbVersion"
