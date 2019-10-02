@@ -18,11 +18,9 @@ import static org.eclipse.microprofile.config.ConfigProvider.getConfig;
 import com.opentable.db.postgres.embedded.EmbeddedPostgres;
 
 import org.apache.commons.text.RandomStringGenerator;
-import org.junit.jupiter.api.extension.AfterAllCallback;
-import org.junit.jupiter.api.extension.BeforeAllCallback;
-import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.Extension;
 
-class PgsqlExtension implements BeforeAllCallback, AfterAllCallback {
+final class PgsqlExtension implements Extension {
 
     private static EmbeddedPostgres pg = getDatabase();
 
@@ -40,11 +38,7 @@ class PgsqlExtension implements BeforeAllCallback, AfterAllCallback {
         return null;
     }
 
-    @Override
-    public void beforeAll(final ExtensionContext context) throws Exception {
-    }
-
-    @Override
-    public void afterAll(final ExtensionContext context) throws Exception {
+    private PgsqlExtension() {
+        /* no-op */
     }
 }

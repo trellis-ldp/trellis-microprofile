@@ -77,6 +77,8 @@ test {
         systemProperty 'quarkus.datasource.username', 'postgres'
         systemProperty 'quarkus.datasource.password', 'postgres'
         systemProperty 'quarkus.datasource.url', "jdbc:postgresql://localhost:$port/postgres"
+    } else {
+        systemProperty 'testing.external.pgsql', 'true'
     }
 
     systemProperty 'trellis.file.memento.basepath', "$buildDir/data/mementos"
