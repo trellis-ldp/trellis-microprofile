@@ -51,8 +51,10 @@ dependencies {
 
     testImplementation "com.opentable.components:otj-pg-embedded:$otjPgVersion"
     testImplementation "io.quarkus:quarkus-junit5"
+    testImplementation "org.jboss.resteasy:resteasy-client"
     testImplementation "io.rest-assured:rest-assured"
     testImplementation "org.apache.commons:commons-text:$commonsTextVersion"
+    testImplementation "org.trellisldp:trellis-test"
 }
 
 test {
