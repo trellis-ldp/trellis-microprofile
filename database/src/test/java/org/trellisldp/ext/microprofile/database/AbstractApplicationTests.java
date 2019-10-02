@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.trellisldp.ext.db.webapp;
+package org.trellisldp.ext.microprofile.database;
 
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
