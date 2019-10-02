@@ -19,5 +19,8 @@ tttttt:::::::tttttt   rr::::::rrrrr::::::re::::::e     e:::::el::::l  l::::l  i:
           ttttttttttt  rrrrrrr                eeeeeeeeeeeeee lllllllllllllllliiiiiiii  sssssssssss
 
 
-
 µP version: $version
+trellis API: $trellisVersion
+trellis database: $trellisDbVersion
+
+
