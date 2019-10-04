@@ -14,5 +14,7 @@ pluginManagement {
 
 rootProject.name = 'trellis-microprofile'
 include ':trellis-database'
+include ':trellis-triplestore'
 
 project(':trellis-database').projectDir = "$rootDir/database" as File
+project(':trellis-triplestore').projectDir = "$rootDir/triplestore" as File

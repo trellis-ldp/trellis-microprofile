@@ -20,6 +20,7 @@ dependencies {
     implementation enforcedPlatform("org.trellisldp:trellis-bom:$trellisVersion")
 
     implementation 'io.quarkus:quarkus-resteasy'
+    implementation 'io.quarkus:quarkus-jsonb'
     implementation 'io.quarkus:quarkus-flyway'
     implementation 'io.quarkus:quarkus-jdbc-postgresql'
     implementation 'io.quarkus:quarkus-jdbc-mariadb'
@@ -29,7 +30,6 @@ dependencies {
     implementation 'io.quarkus:quarkus-smallrye-reactive-messaging'
 
     implementation "com.github.spullara.mustache.java:compiler:$mustacheVersion"
-    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion"
     implementation "com.google.guava:guava:$guavaVersion"
     implementation "io.jsonwebtoken:jjwt-jackson:$jjwtVersion"
     implementation "io.jsonwebtoken:jjwt-api:$jjwtVersion"
@@ -48,7 +48,7 @@ dependencies {
     implementation "org.trellisldp:trellis-audit"
     implementation "org.trellisldp:trellis-auth-oauth"
     implementation "org.trellisldp:trellis-constraint-rules"
-    implementation "org.trellisldp:trellis-event-serialization"
+    implementation "org.trellisldp:trellis-event-jsonb"
     implementation "org.trellisldp:trellis-file"
     implementation "org.trellisldp:trellis-http"
     implementation "org.trellisldp:trellis-io-jena"
@@ -64,8 +64,8 @@ dependencies {
 
     testImplementation "com.opentable.components:otj-pg-embedded:$otjPgVersion"
     testImplementation "io.quarkus:quarkus-junit5"
-    testImplementation "org.jboss.resteasy:resteasy-client"
     testImplementation "io.rest-assured:rest-assured"
+    testImplementation "org.jboss.resteasy:resteasy-client"
     testImplementation "org.apache.commons:commons-text:$commonsTextVersion"
     testImplementation "org.trellisldp:trellis-test"
 }
