@@ -20,7 +20,7 @@ tttttt:::::::tttttt   rr::::::rrrrr::::::re::::::e     e:::::el::::l  l::::l  i:
 
 
 µP version: $version
-trellis API: $trellisVersion
-trellis database: $trellisDbVersion
+trellis core: $trellisVersion
+trellis extensions: $trellisExtVersion
 
 
