@@ -20,6 +20,16 @@ stages:
   - test
   - deploy
 
+branches:
+  only:
+    - master
+    # release tags
+    - /^trellis-microprofile-\d+\.\d+\.\d+$/
+    # maintenance branches
+    - /^trellis-microprofile-\d+\.\d+\.x$/
+    # long-lived branches
+    - /branch-.+/
+
 services:
   - postgresql
 
