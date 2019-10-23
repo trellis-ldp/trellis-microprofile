@@ -29,7 +29,7 @@ ext {
     guavaVersion = '28.1-jre'
     jaxbVersion = '2.3.1'
     jacocoVersion = '0.8.4'
-    jenaVersion = '3.12.0'
+    jenaVersion = '3.13.1'
     junitVersion = '5.5.2'
     otjPgVersion = '0.13.1'
 
