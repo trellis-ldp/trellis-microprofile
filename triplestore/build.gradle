@@ -8,6 +8,7 @@ dependencies {
 
     implementation 'io.quarkus:quarkus-resteasy'
     implementation 'io.quarkus:quarkus-jsonb'
+    implementation 'io.quarkus:quarkus-security'
     implementation 'io.quarkus:quarkus-smallrye-health'
     implementation 'io.quarkus:quarkus-smallrye-reactive-messaging'
 
@@ -37,8 +38,8 @@ dependencies {
     implementation "org.trellisldp:trellis-vocabulary"
     implementation "org.trellisldp:trellis-webac"
 
-    runtime "javax.activation:activation:$activationVersion"
-    runtime "javax.xml.bind:jaxb-api:$jaxbVersion"
+    runtime "jakarta.activation:jakarta.activation-api:$activationApiVersion"
+    runtime "jakarta.xml.bind:jakarta.xml.bind-api:$jaxbApiVersion"
 
     testImplementation "io.quarkus:quarkus-junit5"
     testImplementation "io.rest-assured:rest-assured"
@@ -52,4 +53,6 @@ test {
     systemProperty 'trellis.file.binary.basepath', "$buildDir/data/binaries"
     systemProperty 'trellis.namespaces.path', "$buildDir/resources/test/namespaces.json"
 }
+
+buildNative.enabled=false
 

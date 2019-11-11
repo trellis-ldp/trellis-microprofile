@@ -26,6 +26,7 @@ dependencies {
     implementation 'io.quarkus:quarkus-jdbc-mariadb'
     implementation 'io.quarkus:quarkus-jdbc-h2'
     implementation 'io.quarkus:quarkus-agroal'
+    implementation 'io.quarkus:quarkus-security'
     implementation 'io.quarkus:quarkus-smallrye-health'
     implementation 'io.quarkus:quarkus-smallrye-reactive-messaging'
 
@@ -61,8 +62,8 @@ dependencies {
     implementation "org.trellisldp.ext:trellis-db"
     implementation "org.trellisldp.ext:trellis-db-quarkus"
 
-    runtime "javax.activation:activation:$activationVersion"
-    runtime "javax.xml.bind:jaxb-api:$jaxbVersion"
+    runtime "jakarta.activation:jakarta.activation-api:$activationApiVersion"
+    runtime "jakarta.xml.bind:jakarta.xml.bind-api:$jaxbApiVersion"
 
     testImplementation "com.opentable.components:otj-pg-embedded:$otjPgVersion"
     testImplementation "io.quarkus:quarkus-junit5"
@@ -87,3 +88,6 @@ test {
     systemProperty 'trellis.file.binary.basepath', "$buildDir/data/binaries"
     systemProperty 'com.arjuna.ats.arjuna.objectstore.objectStoreDir', "$buildDir/data/ObjectStore"
 }
+
+buildNative.enabled=false
+
