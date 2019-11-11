@@ -54,5 +54,5 @@ test {
     systemProperty 'trellis.namespaces.path', "$buildDir/resources/test/namespaces.json"
 }
 
-buildNative.enabled=false
+buildNative.enabled = false
 
