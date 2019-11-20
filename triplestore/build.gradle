@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     implementation enforcedPlatform("io.quarkus:quarkus-bom:$quarkusVersion")
-    implementation enforcedPlatform("org.trellisldp:trellis-bom:$trellisVersion")
+    implementation enforcedPlatform("org.trellisldp.ext:trellis-ext-bom:$trellisExtVersion")
 
     implementation 'io.quarkus:quarkus-resteasy'
     implementation 'io.quarkus:quarkus-jsonb'
@@ -30,13 +30,12 @@ dependencies {
     implementation "org.trellisldp:trellis-file"
     implementation "org.trellisldp:trellis-http"
     implementation "org.trellisldp:trellis-io-jena"
-    implementation "org.trellisldp:trellis-namespaces"
     implementation "org.trellisldp:trellis-rdfa"
     implementation "org.trellisldp:trellis-reactive"
-    implementation "org.trellisldp:trellis-quarkus"
     implementation "org.trellisldp:trellis-triplestore"
     implementation "org.trellisldp:trellis-vocabulary"
     implementation "org.trellisldp:trellis-webac"
+    implementation "org.trellisldp.ext:trellis-namespaces"
 
     runtime "jakarta.activation:jakarta.activation-api:$activationApiVersion"
     runtime "jakarta.xml.bind:jakarta.xml.bind-api:$jaxbApiVersion"

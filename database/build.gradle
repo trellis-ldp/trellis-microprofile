@@ -50,7 +50,6 @@ dependencies {
     implementation "org.trellisldp:trellis-reactive"
     implementation "org.trellisldp:trellis-vocabulary"
     implementation "org.trellisldp.ext:trellis-db"
-    implementation "org.trellisldp.ext:trellis-db-quarkus"
 
     implementation "com.github.spullara.mustache.java:compiler:$mustacheVersion"
     implementation "com.google.guava:guava:$guavaVersion"
