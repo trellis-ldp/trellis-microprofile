@@ -24,7 +24,6 @@ ext {
     quarkusVersion = '0.28.1'
     slf4jVersion = '1.7.28'
     snakeyamlVersion = '1.25'
-    trellisExtVersion = '0.3.0-SNAPSHOT'
     trellisVersion = '0.9.0-SNAPSHOT'
 
     /* Testing */
