@@ -4,6 +4,7 @@ plugins {
     id 'com.gradle.build-scan' version '2.4.2'
     id 'net.researchgate.release' version '2.8.1'
     id 'org.owasp.dependencycheck' version '5.2.2'
+    id 'io.quarkus' version '1.0.0.Final'
 }
 
 ext {
@@ -21,7 +22,7 @@ ext {
     jdbiVersion = '3.10.1'
     jjwtVersion = '0.10.7'
     mustacheVersion = '0.9.6'
-    quarkusVersion = '0.28.1'
+    quarkusVersion = '1.0.0.Final'
     slf4jVersion = '1.7.28'
     snakeyamlVersion = '1.25'
     trellisVersion = '0.9.0-SNAPSHOT'

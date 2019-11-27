@@ -1,6 +1,4 @@
-plugins {
-    id 'io.quarkus' version "${quarkusVersion}"
-}
+apply plugin: 'io.quarkus'
 
 dependencies {
     implementation enforcedPlatform("io.quarkus:quarkus-bom:$quarkusVersion")
@@ -54,4 +52,11 @@ test {
 }
 
 buildNative.enabled = false
+
+quarkusDev {
+    doFirst {
+        project.buildscript.repositories.gradlePluginPortal()
+        project.buildscript.dependencies.add('classpath', "io.quarkus:quarkus-gradle-plugin:$quarkusVersion")
+    }
+}
 
