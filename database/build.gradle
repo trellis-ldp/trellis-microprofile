@@ -44,6 +44,7 @@ dependencies {
     implementation "org.trellisldp:trellis-file"
     implementation "org.trellisldp:trellis-http"
     implementation "org.trellisldp:trellis-io-jena"
+    implementation "org.trellisldp:trellis-namespaces"
     implementation "org.trellisldp:trellis-rdfa"
     implementation "org.trellisldp:trellis-reactive"
     implementation "org.trellisldp:trellis-vocabulary"
@@ -86,9 +87,12 @@ test {
         systemProperty 'testing.external.pgsql', 'true'
     }
 
+    systemProperty 'com.arjuna.ats.arjuna.objectstore.objectStoreDir', "$buildDir/data/ObjectStore"
+    systemProperty 'trellis.file.memento-path', "$buildDir/data/mementos"
+    systemProperty 'trellis.file.binary-path', "$buildDir/data/binaries"
+    // TODO remove the next two
     systemProperty 'trellis.file.memento.basepath', "$buildDir/data/mementos"
     systemProperty 'trellis.file.binary.basepath', "$buildDir/data/binaries"
-    systemProperty 'com.arjuna.ats.arjuna.objectstore.objectStoreDir', "$buildDir/data/ObjectStore"
 }
 
 

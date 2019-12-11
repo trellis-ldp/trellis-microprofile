@@ -28,12 +28,12 @@ dependencies {
     implementation "org.trellisldp:trellis-file"
     implementation "org.trellisldp:trellis-http"
     implementation "org.trellisldp:trellis-io-jena"
+    implementation "org.trellisldp:trellis-namespaces"
     implementation "org.trellisldp:trellis-rdfa"
     implementation "org.trellisldp:trellis-reactive"
     implementation "org.trellisldp:trellis-triplestore"
     implementation "org.trellisldp:trellis-vocabulary"
     implementation "org.trellisldp:trellis-webac"
-    implementation "org.trellisldp.ext:trellis-namespaces"
 
     runtime "jakarta.activation:jakarta.activation-api:$activationApiVersion"
     runtime "jakarta.xml.bind:jakarta.xml.bind-api:$jaxbApiVersion"
@@ -46,9 +46,11 @@ dependencies {
 
 test {
     systemProperty 'com.arjuna.ats.arjuna.objectstore.objectStoreDir', "$buildDir/data/ObjectStore"
+    systemProperty 'trellis.file.memento-path', "$buildDir/data/mementos"
+    systemProperty 'trellis.file.binary-path', "$buildDir/data/binaries"
+    // TODO remove these next two
     systemProperty 'trellis.file.memento.basepath', "$buildDir/data/mementos"
     systemProperty 'trellis.file.binary.basepath', "$buildDir/data/binaries"
-    systemProperty 'trellis.namespaces.path', "$buildDir/resources/test/namespaces.json"
 }
 
 buildNative.enabled = false
