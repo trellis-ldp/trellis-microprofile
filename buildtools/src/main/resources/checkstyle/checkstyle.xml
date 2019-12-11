@@ -20,6 +20,11 @@
     <property name="fileExtensions" value="java,css,js,xml"/>
   </module>
 
+  <!-- Checks for long lines. -->
+  <module name="LineLength">
+    <property name="max" value="120"/>
+  </module>
+
   <!-- Check that every module has a package-info.java file. -->
   <module name="JavadocPackage"/>
 
@@ -58,11 +63,6 @@
                synchronized, native, strictfp
           -->
       <property name="severity" value="error"/>
-    </module>
-
-    <!-- Checks for long lines. -->
-    <module name="LineLength">
-      <property name="max" value="120"/>
     </module>
 
     <!-- Javadoc Checks -->
