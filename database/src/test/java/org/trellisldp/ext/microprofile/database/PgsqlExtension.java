@@ -13,8 +13,6 @@
  */
 package org.trellisldp.ext.microprofile.database;
 
-import static org.eclipse.microprofile.config.ConfigProvider.getConfig;
-
 import com.opentable.db.postgres.embedded.EmbeddedPostgres;
 
 import org.apache.commons.text.RandomStringGenerator;
@@ -25,8 +23,8 @@ final class PgsqlExtension implements Extension {
     private static EmbeddedPostgres pg = getDatabase();
 
     static EmbeddedPostgres getDatabase() {
-        if (!getConfig().getOptionalValue("testing.external.pgsql", Boolean.class).orElse(false)) {
-            final int port = getConfig().getOptionalValue("testing.pgsql.port", Integer.class).orElse(0);
+        if (!Boolean.valueOf(System.getProperty("testing.external.pgsql", "false"))) {
+            final int port = Integer.valueOf(System.getProperty("testing.pgsql.port", "0"));
             try {
                 pg = EmbeddedPostgres.builder().setPort(port)
                     .setDataDirectory("build/testing/" + "pgdata-" + new RandomStringGenerator
