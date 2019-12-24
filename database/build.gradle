@@ -96,11 +96,10 @@ test {
 }
 
 
-buildNative.enabled = false
 quarkusDev {
     doFirst {
         project.buildscript.repositories.gradlePluginPortal()
-        project.buildscript.dependencies.add('classpath', "io.quarkus:quarkus-gradle-plugin:$quarkusVersion")
+        project.buildscript.dependencies.add('classpath', "io.quarkus:io.quarkus.gradle.plugin:$quarkusVersion")
     }
 }
 
