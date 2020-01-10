@@ -1,7 +1,6 @@
 plugins {
     id 'com.github.ben-manes.versions' version "$versionsVersion"
     id 'com.github.hierynomus.license' version "$licenseVersion"
-    id 'com.gradle.build-scan' version "$scanVersion"
     id 'net.researchgate.release' version "$releaseVersion"
     id 'org.owasp.dependencycheck' version "$owaspVersion"
     id 'io.quarkus' version "$quarkusVersion"
