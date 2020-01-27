@@ -9,6 +9,7 @@ dependencies {
     implementation 'io.quarkus:quarkus-security'
     implementation 'io.quarkus:quarkus-smallrye-health'
     implementation 'io.quarkus:quarkus-smallrye-reactive-messaging'
+    implementation 'io.quarkus:quarkus-smallrye-reactive-messaging-kafka'
 
     implementation "com.github.spullara.mustache.java:compiler:$mustacheVersion"
     implementation "com.google.guava:guava:$guavaVersion"
@@ -48,9 +49,6 @@ test {
     systemProperty 'com.arjuna.ats.arjuna.objectstore.objectStoreDir', "$buildDir/data/ObjectStore"
     systemProperty 'trellis.file.memento-path', "$buildDir/data/mementos"
     systemProperty 'trellis.file.binary-path', "$buildDir/data/binaries"
-    // TODO remove these next two
-    systemProperty 'trellis.file.memento.basepath', "$buildDir/data/mementos"
-    systemProperty 'trellis.file.binary.basepath', "$buildDir/data/binaries"
 }
 
 buildNative.enabled = false
