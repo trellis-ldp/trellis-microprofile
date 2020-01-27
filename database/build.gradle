@@ -26,7 +26,6 @@ dependencies {
     implementation 'io.quarkus:quarkus-security'
     implementation 'io.quarkus:quarkus-smallrye-health'
     implementation 'io.quarkus:quarkus-smallrye-reactive-messaging'
-    implementation 'io.quarkus:quarkus-smallrye-reactive-messaging-kafka'
 
     // Trellis Application
     implementation "org.trellisldp:trellis-app"
@@ -91,6 +90,9 @@ test {
     systemProperty 'com.arjuna.ats.arjuna.objectstore.objectStoreDir', "$buildDir/data/ObjectStore"
     systemProperty 'trellis.file.memento-path', "$buildDir/data/mementos"
     systemProperty 'trellis.file.binary-path', "$buildDir/data/binaries"
+    // TODO remove the next two
+    systemProperty 'trellis.file.memento.basepath', "$buildDir/data/mementos"
+    systemProperty 'trellis.file.binary.basepath', "$buildDir/data/binaries"
 }
 
 
