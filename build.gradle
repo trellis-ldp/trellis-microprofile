@@ -3,7 +3,6 @@ plugins {
     id 'com.github.hierynomus.license' version "$licenseVersion"
     id 'net.researchgate.release' version "$releaseVersion"
     id 'org.owasp.dependencycheck' version "$owaspVersion"
-    id 'io.quarkus' version "$quarkusVersion"
 }
 
 allprojects { subproj ->

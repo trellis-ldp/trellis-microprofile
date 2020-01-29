@@ -1,4 +1,6 @@
-apply plugin: 'io.quarkus'
+plugins {
+    id 'io.quarkus'
+}
 
 dependencies {
     implementation enforcedPlatform("io.quarkus:quarkus-bom:$quarkusVersion")
@@ -48,16 +50,7 @@ test {
     systemProperty 'com.arjuna.ats.arjuna.objectstore.objectStoreDir', "$buildDir/data/ObjectStore"
     systemProperty 'trellis.file.memento-path', "$buildDir/data/mementos"
     systemProperty 'trellis.file.binary-path', "$buildDir/data/binaries"
-    // TODO remove these next two
-    systemProperty 'trellis.file.memento.basepath', "$buildDir/data/mementos"
-    systemProperty 'trellis.file.binary.basepath', "$buildDir/data/binaries"
 }
 
 buildNative.enabled = false
-quarkusDev {
-    doFirst {
-        project.buildscript.repositories.gradlePluginPortal()
-        project.buildscript.dependencies.add('classpath', "io.quarkus:io.quarkus.gradle.plugin:$quarkusVersion")
-    }
-}
 
