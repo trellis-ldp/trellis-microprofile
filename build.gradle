@@ -22,7 +22,6 @@ ext {
     commonsRdfVersion = "0.5.0"
     jacksonVersion = "2.9.10"
     jdbiVersion = "3.10.1"
-    jjwtVersion = "0.10.7"
     mustacheVersion = "0.9.6"
     slf4jVersion = "1.7.30"
     snakeyamlVersion = "1.25"

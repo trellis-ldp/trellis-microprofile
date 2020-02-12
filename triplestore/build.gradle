@@ -10,6 +10,7 @@ dependencies {
     implementation 'io.quarkus:quarkus-jsonb'
     implementation 'io.quarkus:quarkus-security'
     implementation 'io.quarkus:quarkus-smallrye-health'
+    implementation 'io.quarkus:quarkus-smallrye-jwt'
     implementation 'io.quarkus:quarkus-smallrye-reactive-messaging'
 
     implementation "com.github.spullara.mustache.java:compiler:$mustacheVersion"
@@ -22,7 +23,7 @@ dependencies {
     implementation "org.trellisldp:trellis-api"
     implementation "org.trellisldp:trellis-app"
     implementation "org.trellisldp:trellis-audit"
-    implementation "org.trellisldp:trellis-auth-oauth"
+    implementation "org.trellisldp:trellis-auth-jwt"
     implementation "org.trellisldp:trellis-cache"
     implementation "org.trellisldp:trellis-cdi"
     implementation "org.trellisldp:trellis-constraint-rules"
@@ -50,6 +51,7 @@ test {
     systemProperty 'com.arjuna.ats.arjuna.objectstore.objectStoreDir', "$buildDir/data/ObjectStore"
     systemProperty 'trellis.file.memento-path', "$buildDir/data/mementos"
     systemProperty 'trellis.file.binary-path', "$buildDir/data/binaries"
+    systemProperty 'mp.jwt.verify.publickey.location', 'https://www.trellisldp.org/tests/jwks.json'
 }
 
 buildNative.enabled = false

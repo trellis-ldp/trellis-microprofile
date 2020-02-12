@@ -27,6 +27,7 @@ dependencies {
     implementation 'io.quarkus:quarkus-resteasy'
     implementation 'io.quarkus:quarkus-security'
     implementation 'io.quarkus:quarkus-smallrye-health'
+    implementation 'io.quarkus:quarkus-smallrye-jwt'
     implementation 'io.quarkus:quarkus-smallrye-reactive-messaging'
 
     // Trellis Application
@@ -34,7 +35,7 @@ dependencies {
     implementation "org.trellisldp:trellis-cdi"
 
     // Trellis Auth
-    implementation "org.trellisldp:trellis-auth-oauth"
+    implementation "org.trellisldp:trellis-auth-jwt"
     implementation "org.trellisldp:trellis-webac"
 
     // Trellis components
@@ -54,9 +55,6 @@ dependencies {
 
     implementation "com.github.spullara.mustache.java:compiler:$mustacheVersion"
     implementation "com.google.guava:guava:$guavaVersion"
-    implementation "io.jsonwebtoken:jjwt-jackson:$jjwtVersion"
-    implementation "io.jsonwebtoken:jjwt-api:$jjwtVersion"
-    implementation "io.jsonwebtoken:jjwt-impl:$jjwtVersion"
     implementation("org.apache.commons:commons-rdf-jena:$commonsRdfVersion") {
         exclude group: "org.apache.commons", module: "commons-rdf-simple"
         exclude group: 'org.apache.jena', module: 'jena-osgi'
@@ -92,6 +90,7 @@ test {
     systemProperty 'com.arjuna.ats.arjuna.objectstore.objectStoreDir', "$buildDir/data/ObjectStore"
     systemProperty 'trellis.file.memento-path', "$buildDir/data/mementos"
     systemProperty 'trellis.file.binary-path', "$buildDir/data/binaries"
+    systemProperty 'mp.jwt.verify.publickey.location', 'https://www.trellisldp.org/tests/jwks.json'
 }
 
 
