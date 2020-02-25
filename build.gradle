@@ -8,7 +8,7 @@ plugins {
 ext {
 
     // JavaEE
-    activationApiVersion = "1.2.1"
+    activationApiVersion = "1.2.2"
     annotationApiVersion = "1.3.3"
     cdiApiVersion = "2.0.2"
     injectApiVersion = "1.0"
