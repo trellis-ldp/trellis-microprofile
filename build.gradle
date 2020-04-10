@@ -25,7 +25,7 @@ ext {
     mustacheVersion = "0.9.6"
     slf4jVersion = "1.7.30"
     snakeyamlVersion = "1.26"
-    trellisVersion = "0.10.3"
+    trellisVersion = "0.11.0"
 
     // Testing
     apiguardianVersion = "1.1.0"
