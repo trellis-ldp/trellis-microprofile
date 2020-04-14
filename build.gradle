@@ -30,7 +30,7 @@ ext {
     // Testing
     apiguardianVersion = "1.1.0"
     commonsTextVersion = "1.8"
-    guavaVersion = "28.2-jre"
+    guavaVersion = "29.0-jre"
     jenaVersion = "3.14.0"
     junitVersion = "5.6.1"
     otjPgVersion = "0.13.3"
