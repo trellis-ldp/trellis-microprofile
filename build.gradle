@@ -32,7 +32,7 @@ ext {
     commonsTextVersion = "1.8"
     guavaVersion = "28.2-jre"
     jenaVersion = "3.14.0"
-    junitVersion = "5.6.1"
+    junitVersion = "5.6.2"
     otjPgVersion = "0.13.3"
 
     // Tools
