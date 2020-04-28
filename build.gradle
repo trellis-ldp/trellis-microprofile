@@ -162,8 +162,8 @@ subprojects { subproj ->
             mavenJava(MavenPublication) {
                 pom {
                     packaging = 'jar'
-                    name = 'Trellis Linked Data Server: database extension'
-                    description = 'A database persistence layer for the Trellis linked data server'
+                    name = 'Trellis Linked Data Server: MicroProfile-based deployable applications'
+                    description = 'Deployable Trellis applications using MicroProfile and JavaEE'
                     url = "https://www.trellisldp.org"
                     inceptionYear = '2017'
 
@@ -181,9 +181,9 @@ subprojects { subproj ->
                     }
 
                     scm {
-                        connection = 'scm:git:git://github.com/trellis-ldp/trellis-ext-db.git'
-                        developerConnection = 'scm:git:git@github.com/trellis-ldp/trellis-ext-db.git'
-                        url = 'https://github.com/trellis-ldp/trellis-ext-db'
+                        connection = 'scm:git:git://github.com/trellis-ldp/trellis-microprofile.git'
+                        developerConnection = 'scm:git:git@github.com/trellis-ldp/trellis-microprofile.git'
+                        url = 'https://github.com/trellis-ldp/trellis-microprofile'
                         tag = 'HEAD'
                     }
 
@@ -191,7 +191,7 @@ subprojects { subproj ->
                         license {
                             name = 'Apache License, Version 2.0'
                             url = 'http://www.apache.org/licenses/LICENSE-2.0'
-                            comments = 'Copyright (c) 2017-2019 Trellis LDP'
+                            comments = 'Copyright (c) 2017-2020 Aaron Coburn and individual contributors'
                         }
                     }
                 }
@@ -224,16 +224,6 @@ subprojects { subproj ->
         }
     }
 
-    tasks.withType(PublishToMavenRepository) {
-        onlyIf {
-            subproj.name != "trellis-db-deployment"
-        }
-    }
-    tasks.withType(PublishToMavenLocal) {
-        onlyIf {
-            subproj.name != "trellis-db-deployment"
-        }
-    }
     task install(dependsOn: [assemble, publishToMavenLocal])
     task upload(dependsOn: [assemble, publish])
 
