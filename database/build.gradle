@@ -17,7 +17,7 @@ def static randomPort() {
 
 dependencies {
     implementation enforcedPlatform("io.quarkus:quarkus-bom:$quarkusVersion")
-    implementation enforcedPlatform("org.trellisldp.ext:trellis-ext-bom:$trellisVersion")
+    implementation enforcedPlatform("org.trellisldp:trellis-bom:$trellisVersion")
 
     // Quarkus Application
     implementation 'io.quarkus:quarkus-agroal'
@@ -35,32 +35,28 @@ dependencies {
     implementation "org.trellisldp:trellis-cdi"
 
     // Trellis Auth
-    implementation "org.trellisldp:trellis-auth-jwt"
+    implementation "org.trellisldp:trellis-jwt"
     implementation "org.trellisldp:trellis-webac"
 
     // Trellis components
     implementation "org.trellisldp:trellis-api"
     implementation "org.trellisldp:trellis-audit"
     implementation "org.trellisldp:trellis-cache"
-    implementation "org.trellisldp:trellis-constraint-rules"
+    implementation "org.trellisldp:trellis-constraint"
     implementation "org.trellisldp:trellis-event-jsonb"
     implementation "org.trellisldp:trellis-file"
     implementation "org.trellisldp:trellis-http"
-    implementation "org.trellisldp:trellis-io-jena"
-    implementation "org.trellisldp:trellis-namespaces"
+    implementation "org.trellisldp:trellis-jdbc"
+    implementation "org.trellisldp:trellis-jena"
+    implementation "org.trellisldp:trellis-namespace"
     implementation "org.trellisldp:trellis-rdfa"
     implementation "org.trellisldp:trellis-reactive"
     implementation "org.trellisldp:trellis-vocabulary"
-    implementation "org.trellisldp.ext:trellis-db"
 
     implementation "com.github.spullara.mustache.java:compiler:$mustacheVersion"
     implementation "com.google.guava:guava:$guavaVersion"
-    implementation("org.apache.commons:commons-rdf-jena:$commonsRdfVersion") {
-        exclude group: "org.apache.commons", module: "commons-rdf-simple"
-        exclude group: 'org.apache.jena', module: 'jena-osgi'
-        exclude group: 'org.apache.servicemix.bundles', module: 'org.apache.servicemix.bundles.xerces'
-    }
     implementation("org.apache.jena:jena-arq:$jenaVersion")
+    implementation("org.apache.jena:jena-commonsrdf:$jenaVersion")
     implementation "org.slf4j:slf4j-api:$slf4jVersion"
     implementation "org.yaml:snakeyaml:$snakeyamlVersion"
 
@@ -82,7 +78,7 @@ test {
         systemProperty 'testing.pgsql.port', port
         systemProperty 'quarkus.datasource.username', 'postgres'
         systemProperty 'quarkus.datasource.password', 'postgres'
-        systemProperty 'quarkus.datasource.url', "jdbc:postgresql://localhost:$port/postgres"
+        systemProperty 'quarkus.datasource.jdbc.url', "jdbc:postgresql://localhost:$port/postgres"
     } else {
         systemProperty 'testing.external.pgsql', 'true'
     }
