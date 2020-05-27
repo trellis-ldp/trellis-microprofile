@@ -1,7 +1,7 @@
-# Trellis Linked Data Server (microprofile/database)
+# Trellis Linked Data Server (MicroProfile)
 
 Trellis is a scalable platform for building [linked data](https://www.w3.org/TR/ldp/) applications.
-The `trellis-microprofile` project implements a persistence layer based on a relational database.
+The `trellis-microprofile` project implements a persistence layer based on a triplestore and a relational database.
 
 [![Build Status](https://travis-ci.com/trellis-ldp/trellis-microprofile.svg?branch=master)](https://travis-ci.com/trellis-ldp/trellis-microprofile)
 
