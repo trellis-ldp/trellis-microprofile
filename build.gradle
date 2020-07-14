@@ -31,7 +31,7 @@ ext {
     apiguardianVersion = "1.1.0"
     commonsTextVersion = "1.8"
     guavaVersion = "29.0-jre"
-    jenaVersion = "3.15.0"
+    jenaVersion = "3.16.0"
     junitVersion = "5.6.2"
     otjPgVersion = "0.13.3"
 
