@@ -19,15 +19,16 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 
 import org.trellisldp.api.MementoService;
+import org.trellisldp.common.DefaultTimemapGenerator;
+import org.trellisldp.common.TimemapGenerator;
 import org.trellisldp.file.FileMementoService;
 
 @ApplicationScoped
 class ServiceProducers {
 
-    private MementoService mementoService = new FileMementoService();
+    @Produces
+    TimemapGenerator timemapGenerator = new DefaultTimemapGenerator();
 
     @Produces
-    MementoService getMementoService() {
-        return mementoService;
-    }
+    MementoService mementoService = new FileMementoService();
 }
