@@ -21,8 +21,12 @@ import java.io.IOException;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Produces;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
+
+import org.trellisldp.common.DefaultTimemapGenerator;
+import org.trellisldp.common.TimemapGenerator;
 
 /**
  * Web Application wrapper.
@@ -30,6 +34,9 @@ import javax.ws.rs.core.Application;
 @ApplicationPath("/")
 @ApplicationScoped
 public class TrellisApplication extends Application {
+
+    @Produces
+    TimemapGenerator timemapGenerator = new DefaultTimemapGenerator();
 
     @PostConstruct
     void init() throws IOException {
