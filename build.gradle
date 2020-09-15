@@ -24,7 +24,7 @@ ext {
     jdbiVersion = "3.10.1"
     mustacheVersion = "0.9.6"
     slf4jVersion = "1.7.30"
-    snakeyamlVersion = "1.26"
+    snakeyamlVersion = "1.27"
     trellisVersion = "0.15.0"
 
     // Testing
