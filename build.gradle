@@ -13,7 +13,7 @@ ext {
     cdiApiVersion = "2.0.2"
     injectApiVersion = "1.0.1"
     jaxbApiVersion = "2.3.3"
-    transactionApiVersion = "1.3.3"
+    transactionApiVersion = "2.0.0"
 
     // Platform
     quarkusVersion = "1.9.2.Final"
