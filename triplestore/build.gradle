@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation enforcedPlatform("io.quarkus:quarkus-bom:$quarkusVersion")
-    implementation enforcedPlatform("org.trellisldp:trellis-bom:$trellisVersion")
+    implementation platform("io.quarkus:quarkus-bom:$quarkusVersion")
+    implementation platform("org.trellisldp:trellis-bom:$trellisVersion")
 
     implementation 'io.quarkus:quarkus-resteasy'
     implementation 'io.quarkus:quarkus-jsonb'
@@ -14,11 +14,11 @@ dependencies {
     implementation 'io.quarkus:quarkus-smallrye-reactive-messaging'
 
     implementation "com.github.spullara.mustache.java:compiler:$mustacheVersion"
-    implementation "com.google.guava:guava:$guavaVersion"
+    implementation "com.google.guava:guava"
     implementation "org.apache.jena:jena-arq:$jenaVersion"
     implementation "org.apache.jena:jena-rdfconnection:$jenaVersion"
     implementation "org.apache.jena:jena-tdb2:$jenaVersion"
-    implementation "org.slf4j:slf4j-api:$slf4jVersion"
+    implementation "org.slf4j:slf4j-api"
 
     implementation "org.trellisldp:trellis-api"
     implementation "org.trellisldp:trellis-app"
@@ -38,8 +38,8 @@ dependencies {
     implementation "org.trellisldp:trellis-vocabulary"
     implementation "org.trellisldp:trellis-webac"
 
-    runtime "jakarta.activation:jakarta.activation-api:$activationApiVersion"
-    runtime "jakarta.xml.bind:jakarta.xml.bind-api:$jaxbApiVersion"
+    runtime "jakarta.activation:jakarta.activation-api"
+    runtime "jakarta.xml.bind:jakarta.xml.bind-api"
 
     testImplementation "io.quarkus:quarkus-junit5"
     testImplementation "io.rest-assured:rest-assured"
@@ -53,6 +53,4 @@ test {
     systemProperty 'trellis.file.binary-path', "$buildDir/data/binaries"
     systemProperty 'mp.jwt.verify.publickey.location', 'https://www.trellisldp.org/tests/jwks.json'
 }
-
-buildNative.enabled = false
 

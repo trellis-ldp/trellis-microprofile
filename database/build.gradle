@@ -16,8 +16,8 @@ def static randomPort() {
 }
 
 dependencies {
-    implementation enforcedPlatform("io.quarkus:quarkus-bom:$quarkusVersion")
-    implementation enforcedPlatform("org.trellisldp:trellis-bom:$trellisVersion")
+    implementation platform("io.quarkus:quarkus-bom:$quarkusVersion")
+    implementation platform("org.trellisldp:trellis-bom:$trellisVersion")
 
     // Quarkus Application
     implementation 'io.quarkus:quarkus-agroal'
@@ -54,15 +54,15 @@ dependencies {
     implementation "org.trellisldp:trellis-vocabulary"
 
     implementation "com.github.spullara.mustache.java:compiler:$mustacheVersion"
-    implementation "com.google.guava:guava:$guavaVersion"
+    implementation "com.google.guava:guava"
     implementation("org.apache.jena:jena-arq:$jenaVersion")
     implementation("org.apache.jena:jena-commonsrdf:$jenaVersion")
-    implementation "org.slf4j:slf4j-api:$slf4jVersion"
-    implementation "org.yaml:snakeyaml:$snakeyamlVersion"
+    implementation "org.slf4j:slf4j-api"
+    implementation "org.yaml:snakeyaml"
 
 
-    runtime "jakarta.activation:jakarta.activation-api:$activationApiVersion"
-    runtime "jakarta.xml.bind:jakarta.xml.bind-api:$jaxbApiVersion"
+    runtime "jakarta.activation:jakarta.activation-api"
+    runtime "jakarta.xml.bind:jakarta.xml.bind-api"
 
     testImplementation "com.opentable.components:otj-pg-embedded:$otjPgVersion"
     testImplementation "io.quarkus:quarkus-junit5"
@@ -88,7 +88,4 @@ test {
     systemProperty 'trellis.file.binary-path', "$buildDir/data/binaries"
     systemProperty 'mp.jwt.verify.publickey.location', 'https://www.trellisldp.org/tests/jwks.json'
 }
-
-
-buildNative.enabled = false
 
