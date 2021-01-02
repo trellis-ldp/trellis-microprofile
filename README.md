@@ -7,7 +7,7 @@ The `trellis-microprofile` project implements a persistence layer based on a tri
 
 PostgreSQL database connections are supported.
 
-Java 8+ is required to run Trellis. To build this project, use this command:
+Java 11+ is required to run Trellis. To build this project, use this command:
 
 ```
 $ ./gradlew assemble
