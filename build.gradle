@@ -7,7 +7,7 @@ plugins {
 
 ext {
     // Platform
-    quarkusVersion = "1.11.1.Final"
+    quarkusVersion = "1.11.3.Final"
 
     // Dependencies
     commonsRdfVersion = "0.5.0"
