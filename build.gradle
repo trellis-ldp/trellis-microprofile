@@ -13,7 +13,7 @@ ext {
     commonsRdfVersion = "0.5.0"
     jdbiVersion = "3.10.1"
     mustacheVersion = "0.9.6"
-    trellisVersion = "0.17.1"
+    trellisVersion = "0.17.2"
 
     // Testing
     commonsTextVersion = "1.9"
