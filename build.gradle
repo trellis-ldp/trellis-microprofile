@@ -12,7 +12,7 @@ ext {
     // Dependencies
     commonsRdfVersion = "0.5.0"
     jdbiVersion = "3.10.1"
-    mustacheVersion = "0.9.6"
+    mustacheVersion = "0.9.7"
     trellisVersion = "0.18.0"
 
     // Testing
