@@ -18,7 +18,7 @@ ext {
     // Testing
     commonsTextVersion = "1.9"
     jenaVersion = "4.1.0"
-    otjPgVersion = "0.13.3"
+    otjPgVersion = "0.13.4"
 
     // Tools
     checkstyleVersion = "8.26"
