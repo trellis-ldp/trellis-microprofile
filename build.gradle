@@ -7,13 +7,13 @@ plugins {
 
 ext {
     // Platform
-    quarkusVersion = "1.13.7.Final"
+    quarkusVersion = "2.2.3.Final"
 
     // Dependencies
     commonsRdfVersion = "0.5.0"
     jdbiVersion = "3.10.1"
     mustacheVersion = "0.9.10"
-    trellisVersion = "0.18.0"
+    trellisVersion = "0.19.0"
 
     // Testing
     commonsTextVersion = "1.9"
