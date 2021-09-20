@@ -70,7 +70,7 @@ allprojects { subproj ->
         }
     }
 
-    configuration.all {
+    configurations.all {
         // Titanium requires JakartaEE 9+
         exclude group: 'com.apicatalog', module: 'titanium-json-ld'
 
