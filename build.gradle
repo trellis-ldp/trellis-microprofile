@@ -69,6 +69,16 @@ allprojects { subproj ->
             signTag = true
         }
     }
+
+    configuration.all {
+        // Titanium requires JakartaEE 9+
+        exclude group: 'com.apicatalog', module: 'titanium-json-ld'
+
+        resolutionStrategy {
+            // Jena's JSON-LD 1.1 support brings in JSON-P 2.x
+            force "org.glassfish:jakarta.json:1.1.6"
+        }
+    }
 }
 
 subprojects { subproj ->
