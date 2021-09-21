@@ -17,7 +17,7 @@ ext {
 
     // Testing
     commonsTextVersion = "1.9"
-    jenaVersion = "4.1.0"
+    jenaVersion = "4.2.0"
     otjPgVersion = "0.13.4"
 
     // Tools
@@ -67,6 +67,16 @@ allprojects { subproj ->
             /* Note: for maintenance branches, set this value to the appropriate branch name. */
             requireBranch = 'main'
             signTag = true
+        }
+    }
+
+    configurations.all {
+        // Titanium requires JakartaEE 9+
+        exclude group: 'com.apicatalog', module: 'titanium-json-ld'
+
+        resolutionStrategy {
+            // Jena's JSON-LD 1.1 support brings in JSON-P 2.x
+            force "org.glassfish:jakarta.json:1.1.6"
         }
     }
 }
