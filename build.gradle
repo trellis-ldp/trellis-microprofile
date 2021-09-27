@@ -76,7 +76,7 @@ allprojects { subproj ->
 
         resolutionStrategy {
             // Jena's JSON-LD 1.1 support brings in JSON-P 2.x
-            force "org.glassfish:jakarta.json:1.1.6"
+            force "org.glassfish:jakarta.json:2.0.1"
         }
     }
 }
